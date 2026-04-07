@@ -36,6 +36,35 @@ npm run preview
 - **vendingMachineColor**：售货机主题色
 - **projects**：你的项目列表（`name` / `url` / `price`）
 
+## 仓库数据整理脚本（可选）
+
+仓库里自带了一个脚本 `src/github_scraper.py`，用于**抓取并整理 GitHub 仓库信息**，方便你批量生成/更新作品清单数据，再扩展到 `src/config.ts`（例如：自动收集项目名、描述、主页、topics、stars、语言、创建时间等）。
+
+### 使用方式
+
+抓取你自己的仓库（推荐，支持私有仓库）：
+
+```bash
+python src/github_scraper.py -t <YOUR_GITHUB_TOKEN> -o my_repos.json --pretty
+```
+
+抓取指定用户的公开仓库：
+
+```bash
+python src/github_scraper.py -u <GITHUB_USERNAME> -o my_repos.json --pretty
+```
+
+输出结果是一个 JSON（包含 `projects` 数组）。你可以据此做二次筛选与映射，然后把最终要展示的项目写入 `src/config.ts` 的 `projects` 字段。
+
+### 推荐工作流
+
+- **抓取**：用脚本导出 `my_repos.json`
+- **筛选**：删除不想展示的仓库（例如模板/归档/实验）
+- **映射**：把 `repo_url` 或 `website(homepage)` 等字段映射为你要在售货机里展示的 `url`，并手动设置 `price`
+- **更新展示**：把最终列表贴回 `src/config.ts`
+
+> 注意：`src/config.ts` 当前使用的是最简字段（`name` / `url` / `price`）。如果你想把脚本输出的更多信息（如描述、topics、stars 等）也展示到 UI，可以继续扩展 `config.ts` 的项目结构与页面组件。
+
 
 ## 适用场景
 

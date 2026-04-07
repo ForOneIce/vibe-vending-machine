@@ -33,6 +33,35 @@ Edit `src/config.ts`:
 - **vendingMachineColor**: theme color
 - **projects**: your project list (`name` / `url` / `price`)
 
+## Repository Data Scraper (Optional)
+
+This repo includes a helper script, `src/github_scraper.py`, for **scraping and organizing GitHub repository metadata**. It’s useful when you want to batch-generate or continuously update your project inventory, and then extend / sync the results into `src/config.ts` (e.g. name, description, homepage, topics, stars, language, created/updated time, etc.).
+
+### Usage
+
+Scrape your own repositories (recommended; supports private repos with a token):
+
+```bash
+python src/github_scraper.py -t <YOUR_GITHUB_TOKEN> -o my_repos.json --pretty
+```
+
+Scrape a user’s public repositories:
+
+```bash
+python src/github_scraper.py -u <GITHUB_USERNAME> -o my_repos.json --pretty
+```
+
+The output is a JSON file containing a `projects` array. You can filter/map it and then copy the final list into the `projects` field in `src/config.ts`.
+
+### Suggested Workflow
+
+- **Scrape**: export `my_repos.json`
+- **Filter**: remove repos you don’t want to showcase (templates / archived / experiments)
+- **Map**: map `repo_url` or `website(homepage)` into the vending-machine `url`, then set `price` manually
+- **Update**: paste the final list back into `src/config.ts`
+
+> Note: `src/config.ts` currently uses a minimal schema (`name` / `url` / `price`). If you want to display richer metadata from the scraper (description, topics, stars, etc.), you can extend the config schema and update the UI components accordingly.
+
 ## Good For
 
 - **Indie dev portfolios**: turn scattered projects into one cohesive, memorable experience.
