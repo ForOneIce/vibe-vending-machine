@@ -8,7 +8,7 @@ This project proposes a more playful showcase: turn your portfolio into a **anim
 
 - **🌸 Anime-inspired look**: bright street-scene background + translucent, tactile vending-machine UI.
 - **🕹️ Satisfying physics-like interaction**: click a product (site), it “drops” into the pickup slot; once the animation finishes, the site opens in a new tab.
-- **⚙️ Config-driven**: project list, price tags, sponsorship link, theme color—edit one central config file.
+- **⚙️ Config-driven**: project list, version tags, sponsorship link, theme color—edit one central config file.
 - **🪙 Tip jar as a coin slot**: sponsorship (e.g. Ko-fi) is integrated into the coin slot for a fun “insert coin” moment.
 
 ## Quick Start
@@ -31,7 +31,7 @@ Edit `src/config.ts`:
 
 - **sponsorshipUrl**: the link behind the “coin slot”
 - **vendingMachineColor**: theme color
-- **projects**: your project list (`name` / `url` / `price`)
+- **projects**: your project list (`name` / `website` / `version`)
 
 ## Repository Data Scraper (Optional)
 
@@ -57,10 +57,10 @@ The output is a JSON file containing a `projects` array. You can filter/map it a
 
 - **Scrape**: export `my_repos.json`
 - **Filter**: remove repos you don’t want to showcase (templates / archived / experiments)
-- **Map**: map `repo_url` or `website(homepage)` into the vending-machine `url`, then set `price` manually
+- **Map**: map `repo_url` or `website(homepage)` into the vending-machine `website`
 - **Update**: paste the final list back into `src/config.ts`
 
-> Note: `src/config.ts` currently uses a minimal schema (`name` / `url` / `price`). If you want to display richer metadata from the scraper (description, topics, stars, etc.), you can extend the config schema and update the UI components accordingly.
+> Note: `src/config.ts` currently uses a minimal schema (`name` / `website` / `version`). If you want to display richer metadata from the scraper (description, topics, stars, etc.), you can extend the config schema and update the UI components accordingly.
 
 ## Good For
 

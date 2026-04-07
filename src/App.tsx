@@ -6,8 +6,8 @@ import { Coins, ExternalLink } from 'lucide-react';
 interface Project {
   id: string;
   name: string;
-  url: string;
-  price: string;
+  website: string;
+  version: string;
 }
 
 const VendingMachine = () => {
@@ -25,7 +25,7 @@ const VendingMachine = () => {
 
     // Wait for falling animation, then open new tab
     setTimeout(() => {
-      window.open(project.url, '_blank');
+      window.open(project.website, '_blank');
       
       // Reset after a delay so they can buy again
       setTimeout(() => {
@@ -80,7 +80,7 @@ const VendingMachine = () => {
                           <div className="w-6 h-[2px] bg-gray-400 rounded-full"></div>
                         </div>
                         <img 
-                          src={`https://s0.wp.com/mshots/v1/${encodeURIComponent(project.url)}?w=300`} 
+                          src={`https://s0.wp.com/mshots/v1/${encodeURIComponent(project.website)}?w=300`} 
                           alt={project.name}
                           className="w-full flex-1 object-cover object-top"
                           loading="lazy"
@@ -95,7 +95,7 @@ const VendingMachine = () => {
                       {/* Price / Button Tag */}
                       <div className="bg-[#2a2d36] rounded-full px-2 py-[2px] sm:py-1 mt-1 shadow-md border border-gray-600 flex items-center justify-center gap-1 group-hover:bg-[#ff4d4f] transition-colors w-full">
                         <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-red-500 group-hover:bg-green-400 shadow-[0_0_5px_rgba(0,0,0,0.5)] transition-colors"></div>
-                        <span className="text-gray-200 text-[9px] sm:text-[10px] font-mono leading-none">{project.price}</span>
+                        <span className="text-gray-200 text-[9px] sm:text-[10px] font-mono leading-none">{project.version}</span>
                       </div>
                     </motion.div>
                   ))}
@@ -171,7 +171,7 @@ const VendingMachine = () => {
                    <div className="w-6 h-[2px] bg-gray-400 rounded-full"></div>
                 </div>
                 <img 
-                  src={`https://s0.wp.com/mshots/v1/${encodeURIComponent(dispensedProject.url)}?w=300`} 
+                  src={`https://s0.wp.com/mshots/v1/${encodeURIComponent(dispensedProject.website)}?w=300`} 
                   alt={dispensedProject.name}
                   className="w-full h-full object-cover pt-3"
                 />

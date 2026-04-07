@@ -34,7 +34,7 @@ npm run preview
 
 - **sponsorshipUrl**：投币赞助跳转链接
 - **vendingMachineColor**：售货机主题色
-- **projects**：你的项目列表（`name` / `url` / `price`）
+- **projects**：你的项目列表（`name` / `website` / `version`）
 
 ## 仓库数据整理脚本（可选）
 
@@ -60,10 +60,10 @@ python src/github_scraper.py -u <GITHUB_USERNAME> -o my_repos.json --pretty
 
 - **抓取**：用脚本导出 `my_repos.json`
 - **筛选**：删除不想展示的仓库（例如模板/归档/实验）
-- **映射**：把 `repo_url` 或 `website(homepage)` 等字段映射为你要在售货机里展示的 `url`，并手动设置 `price`
+- **映射**：把 `repo_url` 或 `website(homepage)` 等字段映射为你要在售货机里展示的 `website`
 - **更新展示**：把最终列表贴回 `src/config.ts`
 
-> 注意：`src/config.ts` 当前使用的是最简字段（`name` / `url` / `price`）。如果你想把脚本输出的更多信息（如描述、topics、stars 等）也展示到 UI，可以继续扩展 `config.ts` 的项目结构与页面组件。
+> 注意：`src/config.ts` 当前使用的是最简字段（`name` / `website` / `version`）。如果你想把脚本输出的更多信息（如描述、topics、stars 等）也展示到 UI，可以继续扩展 `config.ts` 的项目结构与页面组件。
 
 
 ## 适用场景
