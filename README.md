@@ -5,7 +5,8 @@
 如果你也觉得普通的“列表导航站/作品清单”太无聊，那么这个项目提供了另一种包装方式：把你的作品集做成一台 **动漫风的街边饮料自动售货机**。访客不是在“点链接”，而是在“买饮料”——用更轻松、解压的交互，把你的作品自然地介绍出去。
 
 
-<img width="507" height="402" alt="{E3E76FE1-0A59-4924-907D-D285DC8CC94D}" src="https://github.com/user-attachments/assets/c2669ab8-ea13-4d99-a25d-8ee451f086f0" />
+<img width="1920" height="945" alt="image" src="https://github.com/user-attachments/assets/31a1cc73-755d-4bd3-8483-b7dfc4b4c5d2" />
+
 
 
 
